@@ -1,0 +1,30 @@
+cpy a d
+cpy 4 c
+cpy 633 b
+inc d
+dec b
+jnz b -2
+dec c
+jnz c -5  # d = a + 633*4
+cpy d a   # a = a + 633*4
+jnz 0 0   # nop
+cpy a b   # b = a
+cpy 0 a   # a = 0
+cpy 2 c   # c = 2
+jnz b 2   # if b != 0: jump 2 ahead
+jnz 1 6   # else: jump 6 ahead
+dec b
+dec c
+jnz c -4  # b -= 2, c = 0
+inc a     # a += 1
+jnz 1 -7
+cpy 2 b   # b = 2
+jnz c 2   # if c != 0: jump 2 ahead
+jnz 1 4   # else: jump 4 ahead
+dec b     # b -= 1
+dec c     # c -= 1
+jnz 1 -4  # c -= 2, b = 0
+jnz 0 0   # nop
+out b
+jnz a -19 # loop until a == 0
+jnz 1 -21 # don't hit this instruction, or we'll loop again to get the same value!
