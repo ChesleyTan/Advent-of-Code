@@ -1,0 +1,8 @@
+[package]
+name = "p2"
+version = "0.1.0"
+authors = ["Chesley Tan <chesleytan97@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+counter = "0.4.3"
